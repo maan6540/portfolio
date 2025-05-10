@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="10; url=https://maan6540.github.io/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Submitted</title>
   <style>
@@ -22,13 +21,40 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    a:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Thanks!</h2>
     <p>Your form was submitted successfully.</p>
-    <p>You will be redirected to the homepage in 10 seconds...</p>
+    <p>You will be redirected to the homepage in <span id="countdown">10</span> seconds...</p>
+    <a href="https://maan6540.github.io/portfolio/">Go to Homepage Now</a>
   </div>
+
+  <script>
+    let seconds = 10;
+    const countdownElement = document.getElementById("countdown");
+
+    const countdown = setInterval(() => {
+      seconds--;
+      countdownElement.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        window.location.href = "https://maan6540.github.io/portfolio/";
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
